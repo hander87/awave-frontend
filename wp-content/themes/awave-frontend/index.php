@@ -41,14 +41,14 @@
 			</div>
 
 			<div id="awave_periodslider" class="awave_sliders">
-				<input id="sliderPerdiod" data-slider-id='sliderPerdiodSlider' type="text" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="1" />
+				<input id="sliderPeriod" data-slider-id='sliderPeriodSlider' type="text" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="1" />
 			</div>
 
-			<span id="sliderPerdiodSliderVal" class="awave_sumheader">30 dagar</span>
+			<span id="sliderPeriodSliderVal" class="awave_sumheader">30 dagar</span>
 		</div>
 
 		<!-- Betalningssumma calculations -->
-		<div class="awave_ingress">Kostnad: <strong><span id="sumextra">695</span> kr</strong> | Att återbetala: <strong><span id="sumkostnad">5 695</span> kr</strong> | Uppdelat på: <strong><span id="sumper">1</span> <span id="sumfak ">faktura</span></strong> á <strong><span id="sumdel">5 695</span> kr</strong> per betalning<br>
+		<div class="awave_ingress">Kostnad: <strong><span id="sumextra">695</span> kr</strong> | Att återbetala: <strong><span id="sumkostnad">5 695</span> kr</strong> | Uppdelat på: <strong><span id="sumper">1</span> <span id="sumfak">faktura</span></strong> á <strong><span id="sumdel">5 695</span> kr</strong> per betalning<br>
 			Effektiv ränta: <strong>387 %</strong> | Faktisk ränta: <strong>13.9 %</strong>
 		</div>
 
