@@ -15,26 +15,27 @@ $("#sliderSum").slider();
 $("#sliderSum").on("slide", function(slideEvt) {
 	$("#sliderSumSliderVal").text(slideEvt.value);
 
-	var mathCurrent = slideEvt.value;
+	/* Getting and setting slider values */
 	var mathMoney = $('#sliderSum').slider('getValue');
-	var mathPeriod = $('#sliderPerdiod').slider('getValue');
+	var mathPeriod = $('#sliderPeriod').slider('getValue');
 
 	/* Calculate and add added cost */
-	var extrasum = Math.floor(mathCurrent / 7.19);
+	var extrasum = Math.floor(mathMoney / 7.19);
 	$("#sumextra").text(numberWithSpaces(extrasum));
 
 	/* Total payback */
 	$("#sumkostnad").text(numberWithSpaces(slideEvt.value + extrasum));
 
 	/* Calculate invoices */
-	var mathVal = Math.floor(slideEvt.value + extrasum / mathPeriod);
+	var mathTotal = mathMoney + extrasum;
+	var mathVal = Math.floor( mathTotal / mathPeriod )
 	$("#sumdel").text(numberWithSpaces(mathVal));
 
 });
 
 /* Låneperiod slider */
 var realValues = ["", "30 dagar", "1 år", "2 år", "3 år", "4 år"];
-$('#sliderPerdiod').slider({
+$('#sliderPeriod').slider({
 	max: 5,
 	min: 1,
 	step: 1,
@@ -43,22 +44,26 @@ $('#sliderPerdiod').slider({
 	}
 })
 .on('change', function(data){
-	$("#sliderPerdiodSliderVal").text(realValues[data.value.newValue]);
+	$("#sliderPeriodSliderVal").text(realValues[data.value.newValue]);
 	$("#sumper").text(data.value.newValue);
 
 	/* Getting and setting slider values */
 	var mathMoney = $('#sliderSum').slider('getValue');
-	var mathPeriod = $('#sliderPerdiod').slider('getValue');
+	var mathPeriod = $('#sliderPeriod').slider('getValue');
+
+	/* Calculate and add added cost */
+	var extrasum = Math.floor(mathMoney / 7.19);
 
 	/* Calculate invoices */
-	var mathVal = Math.floor(mathMoney / data.value.newValue + extrasum)
+	var mathTotal = mathMoney + extrasum;
+	var mathVal = Math.floor( mathTotal / mathPeriod )
 	$("#sumdel").text(numberWithSpaces(mathVal));
 
 	/* Adjust "Faktura"-grammar */
-	if (mathPeriod > 1) {
-		$("#sumfak").text("fakturor");
-	} else {
+	if (mathPeriod == 1) {
 		$("#sumfak").text("faktura");
+	} else {
+		$("#sumfak").text("fakturor");
 	}
 
 });
